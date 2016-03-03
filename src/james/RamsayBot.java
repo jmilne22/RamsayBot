@@ -7,13 +7,6 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import com.flickr4java.flickr.Flickr;
-import com.flickr4java.flickr.FlickrException;
-import com.flickr4java.flickr.REST;
-import com.flickr4java.flickr.photos.Photo;
-import com.flickr4java.flickr.photos.PhotoList;
-import com.flickr4java.flickr.photos.PhotosInterface;
-import com.flickr4java.flickr.photos.SearchParameters;
 import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
@@ -148,45 +141,6 @@ public class RamsayBot extends PircBot {
             } catch (IOException | JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            }
-
-        }
-        /**
-         *
-         *
-         *
-         * !FLICKR COMMAND
-         *
-         *
-         *
-         */
-        if (message.startsWith("!flickr")) {
-            try {
-                String search = message.replace("!flickr", "");
-                String apiKey = "ccbcc57af608de6a75d11621b31a5d53";
-                String sharedSecret = "81da7eefdecfde72";
-                
-                // construct flickr object
-                Flickr f = new Flickr(apiKey, sharedSecret, new REST());
-                
-                // construct photo interface
-                PhotosInterface photoInterface = f.getPhotosInterface();
-                
-                // construct search paramters
-                SearchParameters searchParams = new SearchParameters();
-                searchParams.setText(search); // test for now
-                // get random photo
-                Random rand = new Random();
-                int n = rand.nextInt(5000) + 1;
-                
-                PhotoList<Photo> photos = photoInterface.search(searchParams, 1, n);
-                int i = 1;
-                for (Photo photo1 : photos) {
-                    ++i;
-                    sendMessage(channel, photo1.getUrl() + " / " + photo1.getTitle());
-                }
-            } catch (FlickrException ex) {
-                Logger.getLogger(RamsayBot.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
