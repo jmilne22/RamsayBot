@@ -7,11 +7,6 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.io.IOException;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
 
 public class RamsayBot extends PircBot {
 
@@ -108,6 +103,9 @@ public class RamsayBot extends PircBot {
         } // Link to monotone booru
         else if (message.equalsIgnoreCase("!booru")) {
             sendMessage(channel, "http://mono.booru.org");
+        } // Link to nintendo spreadsheet
+        else if (message.equalsIgnoreCase("!nnid")) {
+        	sendMessage(channel, "http://pyor.us/nnid");
         }
         /**
          *
