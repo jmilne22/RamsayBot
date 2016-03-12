@@ -106,6 +106,9 @@ public class RamsayBot extends PircBot {
         } // Link to nintendo spreadsheet
         else if (message.equalsIgnoreCase("!nnid")) {
         	sendMessage(channel, "http://pyor.us/nnid");
+        } // Link to QDB
+        else if(message.equalsIgnoreCase("!qdb")) {
+        	sendMessage(channel,"http://qdb.pyor.us/");
         }
         /**
          *
